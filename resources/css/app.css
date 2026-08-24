@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@source "../views/**/*.blade.php";
+@source "../js/**/*.js";
+
+:root {
+    --bcomp-navy: #09294F;
+    --bcomp-dark: #061A30;
+    --bcomp-yellow: #FFD600;
+    --bcomp-gold: #FFC21A;
+}
+
+html {
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.font-manrope,
+h1, h2, h3, h4 {
+    font-family: "Manrope", sans-serif;
+}
+
+.nav-link {
+    color: #475569;
+    transition: color .2s ease;
+}
+.nav-link:hover {
+    color: var(--bcomp-navy);
+}
+
+.hero-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .9s ease, visibility .9s ease;
+}
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+.hero-slide .slide-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+.hero-slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    display: none;
+    height: 3rem;
+    width: 3rem;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgb(255 255 255 / .2);
+    background: rgb(0 0 0 / .2);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: .25s ease;
+}
+.carousel-arrow:hover {
+    border-color: var(--bcomp-yellow);
+    background: var(--bcomp-yellow);
+    color: var(--bcomp-dark);
+}
+@media (min-width: 768px) {
+    .carousel-arrow {
+        display: flex;
+    }
+}
+
+.carousel-dot {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / .4);
+    transition: .3s ease;
+}
+.carousel-dot.active {
+    width: 2.2rem;
+    background: var(--bcomp-yellow);
+}
+
+.section-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .75s ease, transform .75s ease;
+}
+.section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-kicker {
+    color: #153E73;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--bcomp-dark);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    height: 4px;
+    width: 0;
+    background: var(--bcomp-yellow);
+    transition: width .35s ease;
+}
+.service-card:hover::before {
+    width: 100%;
+}
+
+.contact-icon {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: .75rem;
+    background: rgb(255 255 255 / .1);
+    color: var(--bcomp-yellow);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .875rem;
+    font-weight: 600;
+}
+.form-input {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: .5rem;
+    padding: .75rem 1rem;
+    outline: none;
+    transition: .2s ease;
+}
+.form-input:focus {
+    border-color: #153E73;
+    box-shadow: 0 0 0 3px rgb(21 62 115 / .12);
+}
+.form-error {
+    margin-top: .4rem;
+    font-size: .8rem;
+    color: #b91c1c;
+}
+
+.footer-link {
+    transition: color .2s ease;
+}
+.footer-link:hover {
+    color: var(--bcomp-yellow);
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bcomp-navy);
+    border-radius: 10px;
+}
